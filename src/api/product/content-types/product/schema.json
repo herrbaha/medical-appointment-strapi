@@ -4,8 +4,7 @@
   "info": {
     "singularName": "product",
     "pluralName": "products",
-    "displayName": "Product",
-    "description": ""
+    "displayName": "Product"
   },
   "options": {
     "draftAndPublish": true
@@ -13,21 +12,7 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string",
-      "required": true
-    },
-    "details": {
-      "type": "blocks",
-      "required": true
-    },
-    "price": {
-      "required": true,
-      "type": "decimal"
-    },
-    "image": {
-      "type": "component",
-      "repeatable": false,
-      "component": "blocks.image"
+      "type": "string"
     }
   }
 }

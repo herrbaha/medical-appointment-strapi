@@ -845,12 +845,43 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiDepartmentDepartment extends Schema.CollectionType {
+  collectionName: 'departments';
+  info: {
+    singularName: 'department';
+    pluralName: 'departments';
+    displayName: 'Department';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::department.department',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::department.department',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHospitalHospital extends Schema.CollectionType {
   collectionName: 'hospitals';
   info: {
     singularName: 'hospital';
     pluralName: 'hospitals';
     displayName: 'Hospital';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -858,8 +889,12 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
   attributes: {
     name: Attribute.String & Attribute.Required;
     location: Attribute.String & Attribute.Required;
-    department: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
+    departments: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToMany',
+      'api::department.department'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -898,6 +933,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
+      'api::department.department': ApiDepartmentDepartment;
       'api::hospital.hospital': ApiHospitalHospital;
     }
   }

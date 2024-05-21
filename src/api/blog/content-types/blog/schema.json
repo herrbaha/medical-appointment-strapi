@@ -24,7 +24,7 @@
       ]
     },
     "BlogDate": {
-      "type": "datetime"
+      "type": "date"
     },
     "BlogTitle": {
       "type": "string",

@@ -888,12 +888,16 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    location: Attribute.String & Attribute.Required;
     image: Attribute.Media & Attribute.Required;
     departments: Attribute.Relation<
       'api::hospital.hospital',
       'oneToMany',
       'api::department.department'
+    >;
+    locations: Attribute.Relation<
+      'api::hospital.hospital',
+      'oneToMany',
+      'api::location.location'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -906,6 +910,37 @@ export interface ApiHospitalHospital extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::hospital.hospital',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLocationLocation extends Schema.CollectionType {
+  collectionName: 'locations';
+  info: {
+    singularName: 'location';
+    pluralName: 'locations';
+    displayName: 'Location';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    location: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::location.location',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::location.location',
       'oneToOne',
       'admin::user'
     > &
@@ -935,6 +970,7 @@ declare module '@strapi/types' {
       'api::category.category': ApiCategoryCategory;
       'api::department.department': ApiDepartmentDepartment;
       'api::hospital.hospital': ApiHospitalHospital;
+      'api::location.location': ApiLocationLocation;
     }
   }
 }

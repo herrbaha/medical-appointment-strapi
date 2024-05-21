@@ -16,10 +16,6 @@
       "type": "string",
       "required": true
     },
-    "location": {
-      "type": "string",
-      "required": true
-    },
     "image": {
       "type": "media",
       "multiple": false,
@@ -35,6 +31,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::department.department"
+    },
+    "locations": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::location.location"
     }
   }
 }

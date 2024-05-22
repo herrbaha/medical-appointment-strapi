@@ -802,7 +802,11 @@ export interface ApiBlogBlog extends Schema.CollectionType {
   attributes: {
     BlogImage: Attribute.Media & Attribute.Required;
     BlogDate: Attribute.Date;
-    BlogTitle: Attribute.String & Attribute.Required;
+    BlogTitle: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 57;
+      }>;
     BlogText: Attribute.Text & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

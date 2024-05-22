@@ -28,7 +28,8 @@
     },
     "BlogTitle": {
       "type": "string",
-      "required": true
+      "required": true,
+      "maxLength": 57
     },
     "BlogText": {
       "type": "text",

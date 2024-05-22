@@ -979,29 +979,6 @@ export interface ApiLocationLocation extends Schema.CollectionType {
   };
 }
 
-export interface ApiLogoLogo extends Schema.CollectionType {
-  collectionName: 'logos';
-  info: {
-    singularName: 'logo';
-    pluralName: 'logos';
-    displayName: 'Logo';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    image: Attribute.Media;
-    alt: Attribute.String & Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::logo.logo', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::logo.logo', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiReviewReview extends Schema.CollectionType {
   collectionName: 'reviews';
   info: {
@@ -1089,7 +1066,6 @@ declare module '@strapi/types' {
       'api::gallery.gallery': ApiGalleryGallery;
       'api::hospital.hospital': ApiHospitalHospital;
       'api::location.location': ApiLocationLocation;
-      'api::logo.logo': ApiLogoLogo;
       'api::review.review': ApiReviewReview;
       'api::service.service': ApiServiceService;
     }

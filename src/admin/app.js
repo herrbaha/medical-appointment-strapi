@@ -1,24 +1,24 @@
-// import logo from "../extensions/healthclinicturkey-logo.png";
-import logo from "../extensions/fav-icon.png";
+import logo from "../extensions/healthclinicturkey-logo.png";
+import favicon from "../extensions/fav-icon.png";
 
 const config = {
   auth: {
-    logo,
+    logo: logo,
   },
 
   head: {
-    favicon: logo,
+    favicon: favicon,
   },
 
   menu: {
-    logo,
+    logo: favicon,
   },
 
   translations: {
     en: {
       "app.components.LeftMenu.navbrand.title": "Health Clinic Dashboard",
-      "Auth.form.welcome.title": "Welcome to Health Clinic Dashboard!",
-      "Auth.form.welcome.subtitle": "Log in to your dashboard",
+      "Auth.form.welcome.title": "Welcome to Dashboard!",
+      "Auth.form.welcome.subtitle": "Log in to your dashboard...",
     },
   },
 };

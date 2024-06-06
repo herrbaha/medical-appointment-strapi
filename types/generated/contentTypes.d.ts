@@ -830,16 +830,17 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
-    icon: Attribute.Media;
+    name: Attribute.String & Attribute.Required;
+    icon: Attribute.Media & Attribute.Required;
     nameText: Attribute.String &
+      Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 100;
         maxLength: 300;
       }>;
     obenMediaText: Attribute.String & Attribute.Required;
     media: Attribute.Media & Attribute.Required;
-    underMediaText: Attribute.Text;
+    underMediaText: Attribute.Text & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

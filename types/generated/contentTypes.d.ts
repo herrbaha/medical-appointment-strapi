@@ -824,6 +824,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'Category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -842,46 +843,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::category.category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCategoryContactFormCategoryContactForm
-  extends Schema.CollectionType {
-  collectionName: 'category_contact_forms';
-  info: {
-    singularName: 'category-contact-form';
-    pluralName: 'category-contact-forms';
-    displayName: 'Category-ContactForm';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    titleText: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        minLength: 100;
-        maxLength: 300;
-      }>;
-    obenMediaText: Attribute.String & Attribute.Required;
-    media: Attribute.Media;
-    underImageText: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::category-contact-form.category-contact-form',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::category-contact-form.category-contact-form',
       'oneToOne',
       'admin::user'
     > &
@@ -1106,7 +1067,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::blog.blog': ApiBlogBlog;
       'api::category.category': ApiCategoryCategory;
-      'api::category-contact-form.category-contact-form': ApiCategoryContactFormCategoryContactForm;
       'api::department.department': ApiDepartmentDepartment;
       'api::gallery.gallery': ApiGalleryGallery;
       'api::hospital.hospital': ApiHospitalHospital;

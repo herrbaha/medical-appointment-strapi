@@ -25,6 +25,29 @@
         "videos",
         "audios"
       ]
+    },
+    "nameText": {
+      "type": "string",
+      "minLength": 100,
+      "maxLength": 300
+    },
+    "obenMediaText": {
+      "type": "string",
+      "required": true
+    },
+    "media": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "underMediaText": {
+      "type": "text"
     }
   }
 }

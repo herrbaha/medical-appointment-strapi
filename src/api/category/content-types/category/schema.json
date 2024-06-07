@@ -34,7 +34,7 @@
       "required": true
     },
     "obenMediaText": {
-      "type": "string",
+      "type": "text",
       "required": true
     },
     "media": {
@@ -50,7 +50,8 @@
     },
     "underMediaText": {
       "type": "text",
-      "required": true
+      "required": true,
+      "maxLength": 2000
     }
   }
 }
